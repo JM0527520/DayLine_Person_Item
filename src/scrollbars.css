@@ -1,0 +1,23 @@
+@property --scroll-thumb-color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: transparent;
+}
+
+:root, .sidebar-scroll, .modal, textarea {
+  --scroll-thumb-color: transparent;
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+  scrollbar-color: var(--scroll-thumb-color) transparent;
+  transition: --scroll-thumb-color 240ms ease;
+}
+:root.scroll-active, .sidebar-scroll.scroll-active, .modal.scroll-active, textarea.scroll-active {
+  --scroll-thumb-color: var(--scrollbar-thumb);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root, .sidebar-scroll, .modal, textarea { transition: none; }
+}
+@media (forced-colors: active) {
+  :root, .sidebar-scroll, .modal, textarea { scrollbar-color: auto; }
+}

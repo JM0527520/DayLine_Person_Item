@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>日序 · 设计预览</title>
+<style>
+:root { --bg:#fff; --sidebar:#f5f5f7; --text:#25262c; --blue:#1671e8; --line:#e9eaee; --muted:#727680; --green:#268363; --coral:#cc5b53; }
+* { box-sizing:border-box; letter-spacing:0; }
+body { margin:0; background:var(--bg); color:var(--text); font:16px/1.6 -apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif; }
+button,input { font:inherit; } button { cursor:pointer; } button:focus-visible,input:focus-visible { outline:2px solid var(--blue); outline-offset:3px; }
+.shell { display:grid; grid-template-columns:210px minmax(0,1fr); min-height:100vh; }
+aside { background:var(--sidebar); padding:32px 20px; border-right:1px solid var(--line); }
+.brand { font-size:23px; font-weight:650; margin-bottom:32px; }.brand small { display:block; font-size:13px; font-weight:400; color:var(--muted); }
+nav { display:grid; gap:6px; }nav button { border:0; text-align:left; border-radius:6px; padding:10px 14px; background:transparent; color:var(--muted); }nav button[aria-pressed=true] { background:#e5eaf2; color:#2b5d9c; }
+.swatches { display:flex; gap:9px; margin-top:32px; }.swatches i { width:16px; height:16px; border-radius:50%; background:var(--swatch); }
+main { min-width:0; padding:42px; max-width:1250px; }h1 { font-size:30px; font-weight:650; margin:0 0 26px; }h2 { font-size:18px; margin:0; }.eyebrow { color:var(--muted); font-size:14px; margin:0 0 8px; }
+.stats { display:flex; gap:40px; padding:20px; background:#f7f8fa; border-block:1px solid var(--line); margin-bottom:30px; }.stats small { display:block; color:var(--muted); }.stats strong { font-size:30px; font-weight:500; }
+.tasks { margin-top:12px; }.task { display:flex; gap:12px; align-items:center; min-height:88px; border-bottom:1px solid var(--line); padding:14px 4px; }.task input { width:17px; height:17px; accent-color:var(--green); }.task span { flex:1; min-width:0; overflow-wrap:anywhere; }.task small { display:block; font-size:14px; color:var(--muted); margin-top:4px; }.task:has(input:checked) .title { text-decoration:line-through; color:var(--muted); }.task em { font-size:14px; font-style:normal; color:var(--coral); }
+.month-layout { display:grid; grid-template-columns:minmax(0,1fr) 180px; gap:24px; }.calendar { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); border-left:1px solid var(--line); border-top:1px solid var(--line); }.calendar > span { text-align:center; color:var(--muted); font-size:14px; padding:8px; border-bottom:1px solid var(--line); border-right:1px solid var(--line); }.calendar button { min-height:90px; border:0; border-right:1px solid var(--line); border-bottom:1px solid var(--line); background:white; text-align:right; padding:8px; color:var(--text); align-content:start; }.calendar button[aria-pressed=true] { background:#edf3fa; box-shadow:inset 0 0 0 1px #adc6e2; }.calendar button.today { color:var(--coral); font-weight:650; }.calendar button small { display:block; margin-top:8px; background:#edf3fa; color:#567596; font-size:13px; text-align:left; padding:2px; }.inspector { border-left:1px solid var(--line); padding-left:20px; }.inspector strong { display:block; font-size:42px; font-weight:400; }.inspector p { color:var(--muted); font-size:14px; }.inspector .selected-title { color:var(--text); }
+[hidden] { display:none!important; }
+@media(max-width:950px) { .shell { grid-template-columns:150px minmax(0,1fr); } main { padding:24px; }.month-layout { grid-template-columns:1fr; }.inspector { border-left:0; border-top:1px solid var(--line); padding:15px 0 0; } }
+@media(max-width:540px) { .shell { grid-template-columns:1fr; } aside { padding:16px; }.brand { margin:0 0 12px; }nav { display:flex; }.swatches { display:none; }main { padding:22px 16px; }.stats { gap:20px; }.calendar button { min-height:64px; padding:4px; } }
+</style>
+</head>
+<body>
+<div class="shell">
+<aside><div class="brand">日序<small>DAYLINE · 设计预览</small></div><nav aria-label="预览视图"><button type="button" data-view="today" aria-pressed="true">今天</button><button type="button" data-view="month" aria-pressed="false">月度总览</button></nav><div class="swatches" aria-label="主要色彩"><i style="--swatch:#1671e8" title="操作蓝"></i><i style="--swatch:#cc5b53" title="日期红"></i><i style="--swatch:#268363" title="完成绿"></i><i style="--swatch:#727680" title="辅助灰"></i></div></aside>
+<main>
+<p class="eyebrow">2026年 10月 23日 星期五</p><h1 id="heading">今天</h1>
+<section id="today"><div class="stats"><div><small>今日待办</small><strong id="pending">3</strong></div><div><small>已完成</small><strong id="done" style="color:var(--green)">0</strong></div></div><h2>今日任务</h2><div class="tasks">
+<label class="task"><input type="checkbox"><span><span class="title">完成项目方案初稿</span><small>项目工作 · 截止 10月25日</small></span><em>高优先级</em></label>
+<label class="task"><input type="checkbox"><span><span class="title">设计评审</span><small>项目工作 · 14:00–15:00</small></span></label>
+<label class="task"><input type="checkbox"><span><span class="title">整理客户反馈与待办</span><small>日常工作 · 今天截止</small></span></label>
+</div></section>
+<section id="month" hidden><div class="month-layout"><div><h2 style="margin-bottom:15px">2026年 10月</h2><div class="calendar" id="calendar" aria-label="十月日期"></div></div><div class="inspector" aria-live="polite"><small>2026年 10月</small><strong id="day">23</strong><p id="workload">2 项计划 · 60 分钟</p><p class="selected-title" id="selected-title">完成项目方案初稿<br>14:00 设计评审</p></div></div></section>
+</main>
+</div>
+<script>
+document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => {
+  const view = button.dataset.view;
+  document.querySelectorAll('[data-view]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+  document.querySelector('#today').hidden = view !== 'today';
+  document.querySelector('#month').hidden = view !== 'month';
+  document.querySelector('#heading').textContent = button.textContent;
+}));
+document.querySelectorAll('.task input').forEach(input => input.addEventListener('change', () => {
+  const count = document.querySelectorAll('.task input:checked').length;
+  document.querySelector('#pending').textContent = 3 - count;
+  document.querySelector('#done').textContent = count;
+}));
+const calendar = document.querySelector('#calendar');
+['一','二','三','四','五','六','日'].forEach(text => { const item = document.createElement('span'); item.textContent = text; calendar.append(item); });
+for (let index = 0; index < 35; index++) {
+  const day = index - 2;
+  if (day < 1 || day > 31) { const blank = document.createElement('span'); calendar.append(blank); continue; }
+  const button = document.createElement('button'); button.type = 'button'; button.textContent = day;
+  button.setAttribute('aria-label', '查看10月' + day + '日'); button.setAttribute('aria-pressed', String(day === 23));
+  if (day === 23) { button.className = 'today'; const event = document.createElement('small'); event.textContent = '设计评审'; button.append(event); }
+  button.addEventListener('click', () => {
+    calendar.querySelectorAll('button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    document.querySelector('#day').textContent = day;
+    document.querySelector('#workload').textContent = day === 23 ? '2 项计划 · 60 分钟' : '0 项计划';
+    document.querySelector('#selected-title').textContent = day === 23 ? '完成项目方案初稿 · 14:00 设计评审' : '暂无安排';
+  }); calendar.append(button);
+}
+</script>
+</body>
+</html>

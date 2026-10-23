@@ -1,0 +1,30 @@
+{
+  "name": "dayline-schedule",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 4317 --strictPort",
+    "build": "tsc -b && vite build",
+    "start": "node scripts/serve.mjs",
+    "test": "node --experimental-strip-types --test tests/domain.test.ts",
+    "test:e2e": "node scripts/test-e2e.mjs"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "dexie": "^4.0.11",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5"
+  }
+}

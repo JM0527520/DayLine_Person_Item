@@ -1,0 +1,75 @@
+.sidebar { overflow-y: hidden; }
+.sidebar-top, .sidebar-bottom { flex-shrink: 0; width: 100%; }
+.sidebar-top { padding-bottom: 16px; border-bottom: 1px solid var(--module-border); }
+.sidebar-top .new-task-button { width: 100%; }
+.sidebar-scroll { flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; padding-right: 4px; margin-right: -4px; }
+.sidebar-scroll:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+.sidebar .sidebar-categories { margin-top: 0; padding-top: 16px; border-top: 0; }
+.sidebar .sidebar-mini-calendar { margin-top: 18px; padding-top: 14px; padding-bottom: 12px; }
+.sidebar .sidebar-bottom { margin-top: 0; padding-top: 12px; }
+.sidebar .demo-note { margin-bottom: 8px; }
+.sidebar .local-status { margin-top: 8px; padding-top: 10px; }
+.month-trigger { display: inline-flex; align-items: center; gap: 5px; padding: 2px 0; font: inherit; color: inherit; text-align: left; border-radius: 3px; }
+.month-trigger:hover { color: var(--blue); }
+.month-trigger > svg { flex-shrink: 0; color: var(--muted); }
+.mini-month > .month-trigger { flex: 1; font-size: var(--font-small); font-weight: 600; color: var(--text-soft); }
+.month-picker { position: fixed; inset: auto; margin: 0; width: 248px; max-width: calc(100vw - 16px); padding: 14px; border: 1px solid var(--module-border); border-radius: 8px; background: var(--raised); color: var(--text); box-shadow: 0 8px 28px #00000014, 0 2px 6px #00000008; }
+.month-picker::backdrop { background: transparent; backdrop-filter: none; }
+.month-picker-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 12px; font-size: var(--font-control); font-weight: 600; }
+.month-picker-heading > span { display: inline-flex; align-items: center; gap: 7px; }
+.month-picker-heading > span > svg { color: var(--muted); }
+.month-picker-heading .icon-button { width: 24px; height: 24px; }
+.month-picker form { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 32px; align-items: end; gap: 8px; }
+.month-picker label { display: grid; min-width: 0; gap: 4px; font-size: var(--font-caption); color: var(--muted); }
+.month-picker input, .month-picker select { width: 100%; min-width: 0; height: 38px; padding: 6px 8px; border: 1px solid var(--module-border); border-radius: 5px; background: var(--surface); color: var(--text); font-size: var(--font-control); }
+.month-picker input[type='number'] { appearance: textfield; }
+.month-picker input::-webkit-inner-spin-button, .month-picker input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.month-picker input:focus-visible, .month-picker select:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.month-picker-confirm { display: grid; place-items: center; width: 32px; height: 38px; padding: 0; border: 1px solid var(--module-border); border-radius: 5px; background: var(--selected); color: var(--accent-text); }
+.month-picker-confirm:hover { background: var(--hover); }
+.completion-indicator { color: var(--green); flex: 0 0 18px; display: flex; align-items: center; }
+.editor .schedule-fields { margin: 0; padding: 0; min-width: 0; border: 0; display: grid; gap: 12px; }
+.schedule-fields legend { padding: 0; margin-bottom: 8px; font-size: var(--font-control); font-weight: 600; color: var(--text); }
+.schedule-date-row { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 16px; }
+.schedule-date-row .field { min-width: 0; }
+.schedule-date-row input { min-width: 0; max-width: 100%; }
+.schedule-note { font-size: var(--font-small); line-height: 1.6; color: var(--muted); margin: 0; }
+.schedule-summary { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 0; padding-block: 6px; font-size: var(--font-small); line-height: 1.6; color: var(--text); overflow-wrap: anywhere; }
+.schedule-summary > span { color: var(--muted); }
+.deadline-field { display: grid; gap: 8px; padding-top: 16px; border-top: 1px solid var(--line); }
+.workspace .agenda-time { flex-basis: 50px; }
+.workspace .day-detail-row > .muted { white-space: normal; overflow-wrap: anywhere; }
+@media(max-width:400px) { .schedule-date-row { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 10px; } .schedule-date-row input { padding-inline: 6px; } }
+.workspace .task-meta .text-green { display: inline-flex; align-items: center; gap: 3px; }
+.workspace .urgent-overview { font-size: var(--font-small); color: var(--module-urgent-text); }
+.urgent-overview > summary { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 2px; cursor: pointer; list-style: none; }
+.urgent-overview > summary::-webkit-details-marker { display: none; }
+.urgent-overview[open] > summary > svg { transform: rotate(180deg); }
+.urgent-overview > summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.density-picker { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+:root[data-density='standard'] .workspace .task-row { min-height: 74px; padding-block: 9px; }
+:root[data-density='standard'] .workspace .task-title,
+:root[data-density='standard'] .workspace .task-meta { line-height: 1.5; }
+:root[data-density='standard'] .workspace .task-meta { margin-top: 4px; }
+:root[data-density='standard'] .workspace .section-title { min-height: 46px; padding-block: 8px; margin-bottom: 12px; }
+:root[data-density='standard'] .workspace .day-summary { padding-block: 12px; margin-bottom: 24px; }
+:root[data-density='standard'] .workspace .carry-section,
+:root[data-density='standard'] .workspace .deadline-section { margin-top: 24px; padding-top: 18px; }
+:root[data-density='standard'] .workspace .urgent-section { margin-bottom: 24px; }
+:root[data-density='standard'] .workspace .calendar-cell { min-height: 106px; }
+:root[data-density='standard'] .workspace .day-detail-row { padding-block: 9px; }
+
+@media(max-width:800px) {
+  .sidebar-scroll { display: none; }
+  .sidebar .sidebar-bottom { margin-top: auto; }
+  .sidebar-top { display: flex; flex-direction: column; align-items: center; padding-bottom: 0; border-bottom: 0; }
+  .sidebar-top .new-task-button { width: 42px; }
+}
+@media(max-height:650px) and (min-width:801px) {
+  .sidebar { padding-top: 14px; padding-bottom: 10px; }
+  .sidebar .workspace-name, .sidebar .local-status, .sidebar .demo-note { display: none; }
+  .sidebar .new-task-button { margin-block: 12px; }
+  .sidebar .nav-item { min-height: 36px; padding-block: 6px; }
+  .sidebar .nav-caption { margin-bottom: 4px; }
+}

@@ -1,0 +1,20 @@
+# 依赖
+node_modules/
+.pnpm-store/
+
+# 构建产物
+dist/
+*.tsbuildinfo
+
+# 测试产物与截图
+test-results/
+playwright-report/
+output/
+
+# 日志与本地临时文件
+*.log
+.DS_Store
+Thumbs.db
+
+# 本地工具数据
+.workbuddy-ai/

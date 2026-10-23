@@ -1,0 +1,77 @@
+{
+  "name": "Dayline Themes",
+  "version": "0.2.0",
+  "source": "src/tokens.css",
+  "themeSource": "src/themes.css",
+  "defaultTheme": "system",
+  "modes": ["system", "light", "dark"],
+  "colors": {
+    "background": "#ffffff",
+    "sidebar": "#f5f5f7",
+    "text": "#25262c",
+    "action": "#1671e8",
+    "line": "#e9eaee",
+    "muted": "#626c7b",
+    "moduleBorder": "#e1e5eb",
+    "moduleHeading": "#f5f6f8",
+    "moduleSubheading": "#f8f9fb",
+    "moduleRail": "#f9fafc",
+    "moduleRowBorder": "#eceef2",
+    "moduleAccent": "#3d70ab",
+    "moduleUrgentBackground": "#fcf5f3",
+    "moduleUrgentText": "#934b42",
+    "subtle": "#f7f8fa",
+    "complete": "#268363",
+    "today": "#cc5b53"
+  },
+  "darkColors": {
+    "background": "#18191c",
+    "sidebar": "#212225",
+    "surface": "#24262b",
+    "raised": "#2c2e34",
+    "text": "#eceef2",
+    "action": "#78afff",
+    "line": "#383b43",
+    "muted": "#adb3bf",
+    "moduleBorder": "#383d46",
+    "moduleHeading": "#282c33",
+    "moduleSubheading": "#23272d",
+    "moduleRail": "#1f2227",
+    "moduleRowBorder": "#30343c",
+    "moduleAccent": "#9dbce8",
+    "moduleUrgentBackground": "#322727",
+    "moduleUrgentText": "#f0afa2",
+    "complete": "#78cda9",
+    "today": "#ed968c"
+  },
+  "spacingPx": [4, 8, 12, 16, 24, 32],
+  "radiusPx": 8,
+  "typography": {
+    "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif",
+    "letterSpacingPx": 0,
+    "bodyPx": 17,
+    "pageTitlePx": 30,
+    "taskTitlePx": 17,
+    "taskTitleLargeDesktopPx": 17,
+    "metadataPx": 15,
+    "controlPx": 16,
+    "calendarEventPx": 14,
+    "compactLabelPx": 13,
+    "sectionTitlePx": 20
+  },
+  "layout": {
+    "sidebarPx": 232,
+    "sidebarScrollRegion": "categories-and-calendar",
+    "contentMaxWidthPx": 1720,
+    "breakpointsPx": [540, 800, 1000, 1250, 1600]
+  },
+  "density": {
+    "default": "comfortable",
+    "modes": ["standard", "comfortable"],
+    "taskRowMinHeightPx": { "standard": 74, "comfortable": 94 },
+    "fontSizesUnchanged": true
+  },
+  "motion": {
+    "controlTransitionMs": 160
+  }
+}
