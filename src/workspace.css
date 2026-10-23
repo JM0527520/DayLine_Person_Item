@@ -39,6 +39,11 @@
 .deadline-field { display: grid; gap: 8px; padding-top: 16px; border-top: 1px solid var(--line); }
 .workspace .agenda-time { flex-basis: 50px; }
 .workspace .day-detail-row > .muted { white-space: normal; overflow-wrap: anywhere; }
+:root { --calendar-outside-bg: #f2f3f5; }
+:root[data-theme='dark'] { --calendar-outside-bg: #121315; }
+:root[data-theme] .workspace .calendar-cell { background: var(--bg); box-shadow: none; }
+:root[data-theme] .workspace .calendar-cell.outside { background: var(--calendar-outside-bg); }
+.workspace .calendar-cell.selected > .day-number { outline: 1px solid var(--blue); outline-offset: 2px; }
 @media(max-width:400px) { .schedule-date-row { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 10px; } .schedule-date-row input { padding-inline: 6px; } }
 .workspace .task-meta .text-green { display: inline-flex; align-items: center; gap: 3px; }
 .workspace .urgent-overview { font-size: var(--font-small); color: var(--module-urgent-text); }
